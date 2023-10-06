@@ -64,7 +64,7 @@ In your Azure account:
 The project contains two folders, `backend` and `frontend`.
 
 - **Backend**
-  - To run the project locally, open the `backend` folder in VSCode and run the project (See [Bac kend](#backend) for more info).
+  - To run the project locally, open the `backend` folder in VSCode and run the project (See [Backend](#backend) for more info).
   - This will make the backend webpage available at the following addresses:
     - [http://127.0.0.1:8000/](http://127.0.0.1:8000/) serves the frontend React SPA webpage.
     - [http://127.0.0.1:8000/api/v1/](http://127.0.0.1:8000/api/v1/) serves the Django REST API webpage.

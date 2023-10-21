@@ -82,9 +82,10 @@ The project contains two folders, `backend` and `frontend`.
 1. In the `/backend` folder, if there is no virtual environment (`.venv`), create one and select it as the default Python interpreter in VSCode. Run `python3 -m venv .venv`.
 2. If the Python packages are not installed, run `pip install -r requirements.txt`.
 3. Run:
-   1. python manage.py makemigrations
-   2. python manage.py makemigrations api
-   3. python manage.py migrate
+   1. export $(xargs <.env/local.env)
+   2. python manage.py makemigrations
+   3. python manage.py makemigrations api
+   4. python manage.py migrate
 4. In the folder `/backend/.env`:
    1. Create the files `local.env`, `development.env` and `production.env`.
    2. Fill in the needed properties as shown in the `example.env` file. You can use the values in the `Configuration` section of the Azure App Service resource.

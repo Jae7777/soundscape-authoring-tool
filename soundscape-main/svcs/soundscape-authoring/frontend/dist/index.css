@@ -720,6 +720,19 @@ video {
   vertical-align: text-bottom;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
 html,
 body {
   height: 100%;
@@ -730,9 +743,9 @@ body {
 
 /* Disables scrollbars */
 
-body {
+/* body {
   overflow: hidden;
-}
+} */
 
 #root {
   height: 100%;

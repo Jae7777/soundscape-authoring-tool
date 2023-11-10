@@ -36,9 +36,27 @@
     ></script>
     <!-- Tailwind CSS -->
     <link href="/dist/index.css" rel="stylesheet">
+    <style>
+
+      #mapid { height: 180px; }
+      
+    </style>
+    <!-- Mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+
+      var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+      
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(mymap);
+      
+      
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

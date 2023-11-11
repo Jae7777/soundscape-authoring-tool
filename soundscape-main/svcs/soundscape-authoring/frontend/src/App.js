@@ -24,6 +24,9 @@ import MapOverlayModal from './components/Modals/MapOverlayModal';
 import ActivityImportModal from './components/Modals/ActivityImportModal';
 import InvalidWindowSizeAlert from './components/Main/InvalidWindowSizeAlert';
 import PrivacyAlertModal from './components/Modals/PrivacyAlertModal';
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
+mapboxgl.accessToken = 'pk.eyJ1IjoianVzdGluY2hlbjc3IiwiYSI6ImNsb3Q0NWp0YjA1eGoya21yZTg3MmQxNWMifQ.K-wyYpbA1imFwulWjnyh5w';
 
 export default class App extends React.Component {
   static STORAGE_KEYS = Object.freeze({
@@ -59,9 +62,15 @@ export default class App extends React.Component {
       showModalWaypointCreate: false,
       showModalWaypointUpdate: false,
       showModalWaypointDelete: false,
+
+      // Mapbox
+      lng: -70.9,
+      lat: 42.35,
+      zoom: 9,
     };
 
     this.bindActions();
+    this.mapContainer = React.createRef();
   }
 
   bindActions() {
@@ -93,6 +102,14 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    // Mapbox
+    const map = new mapboxgl.Map({
+      container: this.mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [this.state.lng, this.state.lat],
+      zoom: this.state.zoom
+    });
+
     window.addEventListener('resize', this.handleResize);
 
     this.authenticate()
@@ -434,7 +451,9 @@ export default class App extends React.Component {
               onActivitiesShow={this.showActivities}
               presentingDetail={this.state.selectedActivity}
             />
-
+            {/* Mapbox */}
+            <div ref={this.mapContainer} className="map-container" />
+            
             <main className="main container-fluid">
               <Row className="main-row">
                 {/* Primary */}

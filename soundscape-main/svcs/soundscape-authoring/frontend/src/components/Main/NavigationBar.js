@@ -14,7 +14,7 @@ export default function NavigationBar({ presentingDetail, onActivitiesShow, user
             width="24"
             height="24"
             alt="Brand logo"
-            src="/media/SoundscapeLogo.png/"
+            src="/media/SoundscapeLogo.png"
             aria-hidden="true"
           />{' '}
           Authoring Tool
